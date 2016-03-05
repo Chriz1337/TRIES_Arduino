@@ -14,7 +14,7 @@
  */
 
 //VARIABLEN
-int tasterstatus = LOW; 
+int tasterstatus = LOW;
 
 
 // the setup function runs once when you press reset or power the board
@@ -22,22 +22,25 @@ void setup() {
   // initialize digital pin 13 as an output.
   pinMode(12, OUTPUT);
   pinMode(8, INPUT);
-  pinMode(2, OUTPUT); 
-  digitalWrite(2, HIGH);                                        
+  pinMode(2, OUTPUT);
+  digitalWrite(2, HIGH);
+  Serial.begin(19200);
 }
 
 // the loop function runs over and over again forever
-void loop() {
+void loop()
+{
 
-  tasterstatus = digitalRead(8); 
-  if(tasterstatus==HIGH)
-    {
+  tasterstatus = digitalRead(8);
+  if (tasterstatus == HIGH)
+  {
     digitalWrite(12, HIGH);
     //delay(1000);
-    //digitalWrite(12, LOW);                  
-    }
+    //digitalWrite(12, LOW);
+  }
   else
-    {
-    digitalWrite(12, LOW); 
-    } 
+  {
+    digitalWrite(12, LOW);
+  }
+  Serial.println(" Grad Celsius");
 }
